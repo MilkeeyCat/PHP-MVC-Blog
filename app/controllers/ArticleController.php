@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class ArticleController extends \app\core\Controller
+class ArticleController extends \app\controllers\BaseRenderController
 {
 	public function mainAction()
 	{
@@ -15,10 +15,6 @@ class ArticleController extends \app\core\Controller
 
 		$post = @$model->getPostById($articleId)[0];
 
-		$popularPosts = $model->getPopularPosts(4);
-
-        $categories = $model->getCategories();
-
         $samePostsByCategory = $model->getPostsByCategory($articleId, $post['category_id'], 3);
 
 		foreach ($samePostsByCategory as $catPost) {
@@ -30,11 +26,9 @@ class ArticleController extends \app\core\Controller
 			$this->view->render();
 		}
 
-		$this->view->render([
-		    'categories' => $categories,
-			'popularPosts' => $popularPosts,
-			'post' => $post,
+        $this->render([
+            'post' => $post,
             'samePostsByCategory' => $samePostsByCategory,
-		]);
+        ]);
 	}
 }

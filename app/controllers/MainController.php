@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class MainController extends \app\core\Controller
+class MainController extends \app\controllers\BaseRenderController
 {
     public function indexAction()
     {
@@ -15,34 +15,22 @@ class MainController extends \app\core\Controller
             $post['text'] = mb_substr($post['text'], 0, 150) . '...';
         }
 
-        $categories = $model->getCategories();
-
-        $popularPosts = $model->getPopularPosts(4);
-
         $popularPosts2 = $model->getPosts(4);
 
-        $this->view->render([
+        $this->render([
             'title' => 'Main Page',
             'mainPost' => $mainPost,
             'twoPosts' => $twoPosts,
-            'categories' => $categories,
-            'popularPosts' => $popularPosts,
             'popularPosts2' => $popularPosts2
         ]);
     }
 
     public function aboutMeAction()
     {
-        $this->view->render();
+        $this->render();
     }
     public function contactUsAction()
     {
-        $model = $this->loadModel('main');
-
-        $popularPosts = $model->getPopularPosts(4);
-
-        $this->view->render([
-            'popularPosts' => $popularPosts
-        ]);
+        $this->render();
     }
 }
