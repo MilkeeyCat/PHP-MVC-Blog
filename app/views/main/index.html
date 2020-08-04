@@ -1,0 +1,231 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ static }}css/main.css">
+<script src="{{ static }}js/main.js" defer type="module"></script>
+{% endblock %}
+
+{% block pre_row %}
+
+<div class="slider main__slider">
+    <div class="slider__prev-btn">
+        <img src="{{ static }}/images/slider-arrow.png">
+    </div>
+    <div class="slider__next-btn">
+        <img src="{{ static }}/images/slider-arrow.png">
+    </div>
+
+    <div class="slider__slides">
+        <div class="slider__slide"
+             style="background-image: url('{{ static }}/images/slider-images/Chrysanthemum.jpg');">
+        </div>
+        <div class="slider__slide" style="background-image: url('{{ static }}/images/slider-images/Desert.jpg');">
+        </div>
+        <div class="slider__slide" style="background-image: url('{{ static }}/images/slider-images/Hydrangeas.jpg');">
+        </div>
+        <div class="slider__slide" style="background-image: url('{{ static }}/images/slider-images/Jellyfish.jpg');">
+        </div>
+        <div class="slider__slide" style="background-image: url('{{ static }}/images/slider-images/Koala.jpg');">
+        </div>
+    </div>
+</div>
+<div class="many-slides-slider main__many-slides-slider">
+    <span class="many-slides-slider__title">INSTAGRAM</span>
+    <div class="many-slides-slider__inner">
+
+        <div class="many-slides-slider__prev-btn">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
+        <div class="many-slides-slider__next-btn">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+
+        <div class="many-slides-slider__slides">
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Chrysanthemum.jpg');"></div>
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Desert.jpg');"></div>
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Hydrangeas.jpg');"></div>
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Jellyfish.jpg');"></div>
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Koala.jpg');"></div>
+            <div class="many-slides-slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Lighthouse.jpg');"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block left_row %}
+
+<div class="recent-post row__recent-post">
+    <div class="section">
+        <div class="section__title recent-post__title">RECENT POST</div>
+        <div class="section__lines">
+            <div class="section__line section__line_color_orange recent-post__line_color_orange"></div>
+            <div class="section__line section__line_color_gray recent-post__line_color_gray"></div>
+        </div>
+    </div>
+    <article class="article">
+        <div class="article__preview"
+             style="background-image: url('{{ static }}posts-images/{{ mainPost.preview_img }}');">
+            <div class="article__type">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="article__text">
+            <div class="article__top">
+                <a href="/article/{{ mainPost.id }}" class="article__title">{{ mainPost.title }}</a>
+                <p class="article__by">BY <span class="article__author">{{ mainPost.author }}</span> <span
+                        class="acticle__pub-date">{{ mainPost.pub_date }}</span></p>
+            </div>
+            <section class="section article__line-section">
+                <div class="section__lines">
+                    <div class="section__line section__line_color_orange article__line_color_orange"></div>
+                    <div class="section__line section__line_color_gray article__line_color_gray"></div>
+                </div>
+            </section>
+            <p class="article__description">{{ mainPost.text }}</p>
+            <div class="article__btns">
+                <a class="article__left-btn" href="/article/{{ mainPost.id }}">
+                    CONTINUE READING
+                </a>
+
+                <div class="share-block">
+                    <ul class="share-block__social-media">
+                        <li class="share-block__item">
+                            <a href="{{ mainPost.links.Facebook }}">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="share-block__item">
+                            <a href="{{ mainPost.links.Twitter }}">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="share-block__item">
+                            <a href="{{ mainPost.links.VK }}">
+                                <i class="fa fa-tumblr" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="share-block__item">
+                            <a href="{{ mainPost.links.Facebook }}">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="share-block__share-btn">
+                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="recent-post__twice-article">
+        {% for post in twoPosts %}
+        <article class="article article__twice">
+            <div class="article__preview article__preview_style_twice"
+                 style="background-image: url('{{ static }}posts-images/{{ post.preview_img }}');">
+                <div class="article__type">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="article__text">
+                <div class="article__top">
+                    <a href="article/{{ post.id }}" class="article__title">{{ post.title }}</a>
+                    <p class="article__by">BY <span class="article__author">{{ post.author }}</span> <span
+                            class="acticle__pub-date">{{ post.pub_date }}</span></p>
+                </div>
+                <section class="section article__line-section">
+                    <div class="section__lines">
+                        <div class="section__line section__line_color_orange article__line_color_orange article__line_style_twice"></div>
+                        <div class="section__line section__line_color_gray article__line_color_gray"></div>
+                    </div>
+                </section>
+                <p class="article__description article__description_twice">{{ post.text }}</p>
+                <div class="article__btns">
+                    <button class="article__left-btn article__left-btn_style_twice-article">
+                        <a href="article/{{ post.id }}">READ MORE</a>
+                    </button>
+
+                    <div class="share-block">
+                        <ul class="share-block__social-media">
+                            <li class="share-block__item">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-tumblr" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                        <div class="share-block__share-btn">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="recent-post__large-articles">
+        {% for post in popularPosts2 %}
+        <article class="article article__large-article">
+            <div class="article__preview article__preview_style_large"
+                 style="background-image: url('{{ static }}posts-images/{{ post.preview_img }}');"></div>
+            <div class="article__text article__text_style_large">
+                <div class="article__top">
+                    <a href="article/{{ post.id }}" class="article__title">{{ post.title }}</a>
+                    <p class="article__by">BY <span class="article__author">{{ post.author }}</span> <span
+                            class="acticle__pub-date">{{ post.pub_date}}.</span></p>
+                </div>
+                <section class="section article__line-section">
+                    <div class="section__lines">
+                        <div class="section__line section__line_color_orange article__line_color_orange"></div>
+                        <div class="section__line section__line_color_gray article__line_color_gray"></div>
+                    </div>
+                </section>
+                <p class="article__description">{{ post.text }}</p>
+                <div class="article__btns">
+                    <button class="article__left-btn article__left-btn_style_large">
+                        <a href="article/{{ post.id }}">CONTINUE READING</a>
+                    </button>
+
+                    <div class="share-block">
+                        <ul class="share-block__social-media">
+                            <li class="share-block__item">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-tumblr" aria-hidden="true"></i>
+                            </li>
+                            <li class="share-block__item">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                        <div class="share-block__share-btn">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+{% include 'layouts/sidebar.html' %}
+{% endblock%}

@@ -1,0 +1,165 @@
+<div class="sidebar row__sidebar">
+    <div class="section">
+        <div class="section__title sidebar__title">SIDEBAR</div>
+        <div class="section__lines">
+            <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+            <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+        </div>
+    </div>
+    <div class="search">
+        <input type="search" class="search__input" placeholder="SEARCH">
+        <a href="#" class="search__icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="popular-post">
+        <div class="section">
+            <div class="section__title">POPULAR POST</div>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <div class="popular-post__articles">
+            {% for post in popularPosts %}
+            <article class="popular-post__article">
+                <div class="popular-post__preview"
+                     style="background-image: url('{{ static }}posts-images/{{ post.preview_img }}');"></div>
+                <div class="popular-post__text">
+                    <a href="/article/{{ post.id }}" class="popular-post__title">{{ post.title }}</a>
+                    <p class="popular-post__pub-date">{{ post.pub_date }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="sidebar__ad">
+        <div class="sidebar__ad-content">
+            <span>250 x 250</span>
+        </div>
+    </div>
+    <div class="categories">
+        <div class="section">
+            <p class="section__title">CATEGORIES</p>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <ul>
+            {% for category in categories %}
+            <li class="categories__item"><a href="/category/{{ category.id }}">{{ category.name }} ({{
+                category.articles_count }})</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="sidebar__images">
+        <div class="section">
+            <div class="section__title">INSTAGRAM</div>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_even"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_odd"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_even"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_odd"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_even"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_odd"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_even"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_odd"></div>
+                </td>
+                <td>
+                    <div class="sidebar__image sidebar__image_color_even"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="sidebar__empty">
+        <span>Я сделал этот блок только из за того что он был в макете</span>
+    </div>
+    <div class="sidebar__social-media">
+        <div class="section">
+            <div class="section__title">SOCIAL MEDIA</div>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <div class="share-block">
+            <ul class="share-block__social-media">
+                <li class="share-block__item">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </li>
+                <li class="share-block__item">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </li>
+                <li class="share-block__item">
+                    <i class="fa fa-tumblr" aria-hidden="true"></i>
+                </li>
+                <li class="share-block__item">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                </li>
+            </ul>
+            <div class="share-block__share-btn">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar__post-slider">
+        <div class="section">
+            <div class="section__title">POST SLIDER</div>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <div class="slider slider_style_compact sidebar__slider">
+            <div class="slider__prev-btn slider__prev-btn_style_compact">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </div>
+            <div class="slider__next-btn slider__next-btn_style_compact">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img class="slider__img" src="{{ static }}/images/slider-images/Chrysanthemum.jpg">
+                </div>
+                <div class="slider__slide">
+                    <img class="slider__img" src="{{ static }}/images/slider-images/Desert.jpg">
+                </div>
+                <div class="slider__slide">
+                    <img class="slider__img" src="{{ static }}/images/slider-images/Hydrangeas.jpg">
+                </div>
+                <div class="slider__slide">
+                    <img class="slider__img" src="{{ static }}/images/slider-images/Jellyfish.jpg">
+                </div>
+                <div class="slider__slide">
+                    <img class="slider__img" src="{{ static }}/images/slider-images/Koala.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

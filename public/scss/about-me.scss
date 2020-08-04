@@ -1,0 +1,45 @@
+@import "./base.scss";
+@import "./mixins.scss";
+
+.row {
+    .about-me {
+        max-width: 1170px;
+        width: 100%;
+    }
+}
+.about-me {
+
+    &__img {
+        height: 490px;
+        background-color: #424242;
+    }
+
+    &__text {
+        padding: 40px 30px;
+        background: #fff;
+        & > p:nth-child(2) {
+            font-weight: 600;
+        }
+        & > p:nth-child(3) {
+            margin-top: 25px;
+            letter-spacing: .5px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+    }
+    &__selected {
+        color: #ffb79b;
+    }
+
+    li > p > &__selected {
+        margin-right: 10px;
+    }
+
+    h2 {
+        font-weight: 700;
+        margin: 40px 0;
+    }
+    ul > :not(:first-child) {
+        margin-top: 15px;
+    }
+}

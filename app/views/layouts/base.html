@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Home Page {% endblock %}</title>
+    <link rel="shortcut icon" href="{{ static }}favicon.png">
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="{{ static }}js/default.js" defer type="module"></script>
+    {% block head %}{% endblock%}
+</head>
+<body>
+<header class="header">
+    <div class="header__inner">
+        <div class="header__menu">
+            <nav class="header__menu-navigation">
+                <div class="header__link">
+                    <a href="/" class="header__hover">HOME</a>
+                </div>
+                <!--                <div class="header__link">-->
+                <!--                    <a href="#" class="header__hover">POST TYPES</a>-->
+                <!--                </div>-->
+                <!--                <div class="header__link">-->
+                <!--                    <a href="#" class="header__hover">FEATURES</a>-->
+                <!--                </div>-->
+                <!--                <div class="header__link">-->
+                <!--                    <a href="#" class="header__hover">TRAVEL</a>-->
+                <!--                </div>-->
+                <!--                <div class="header__link">-->
+                <!--                    <a href="#" class="header__hover">FASHION</a>-->
+                <!--                </div>-->
+                <!--                <div class="header__link">-->
+                <!--                    <a href="#" class="header__hover">MUSIC</a>-->
+                <!--                </div>-->
+                {% for articleCategory in categories %}
+                <div class="header__link"><a href="/category/{{ articleCategory.id }}">{{ articleCategory.name }}</a>
+                </div>
+                {% endfor%}
+                <div class="header__link">
+                    <a href="/contact-us" class="header__hover">CONTACT</a>
+                </div>
+                <div class="header__link">
+                    <a href="#" class="header__hover">ABOUT ME</a>
+                </div>
+            </nav>
+        </div>
+        <div class="header__burger-menu">
+            <div class="header__burger-menu-inner">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="header__left">
+            <div class="header__search">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-search " aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="header__submit-story">
+                <a href="#" class="header__hover">SUBMIT STORY</a>
+            </div>
+        </div>
+        <nav class="header__navigation">
+            <!--            <div class="header__link">-->
+            <!--                <a href="#" class="header__hover">POST TYPES</a>-->
+            <!--            </div>-->
+            <!--            <div class="header__link">-->
+            <!--                <a href="#" class="header__hover">FEATURES</a>-->
+            <!--            </div>-->
+            <!--            <div class="header__link">-->
+            <!--                <a href="#" class="header__hover">TRAVEL</a>-->
+            <!--            </div>-->
+            <!--            <div class="header__link">-->
+            <!--                <a href="#" class="header__hover">FASHION</a>-->
+            <!--            </div>-->
+            <!--            <div class="header__link">-->
+            <!--                <a href="#" class="header__hover">MUSIC</a>-->
+            <!--            </div>-->
+            <div class="header__link">
+                <a href="/" class="header__hover">HOME</a>
+            </div>
+            {% for articleCategory in categories %}
+            <div class="header__link"><a href="/category/{{ articleCategory.id }}">{{ articleCategory.name }}</a></div>
+            {% endfor%}
+            <div class="header__link">
+                <a href="/contact-us" class="header__hover">CONTACT</a>
+            </div>
+            <div class="header__link">
+                <a href="/about-me" class="header__hover">ABOUT ME</a>
+            </div>
+        </nav>
+        <div class="header__social-icons">
+            <div class="header__social-icon">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="header__social-icon">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="header__social-icon">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-tumblr" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="header__social-icon">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="header__social-icon">
+                <a href="#" class="header__hover">
+                    <i class="fa fa-rss" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <div class="main__inner">
+        <div class="main__header">
+            <span class="main__title">LifeStyle</span>
+            <span class="main__sub-title">LET'S MAKEPREFECT LIFE</span>
+        </div>
+        {% block pre_row %}
+        {% endblock %}
+        <div class="row">
+
+            {% block left_row %}
+            {% endblock %}
+
+            {% block sidebar%}
+            {% endblock %}
+            <!-- Here must be your content -->
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__hide-btn">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </div>
+        <div class="footer__cols">
+            <div class="footer__col">
+                <div class="section">
+                    <div class="section__title">ABOUT ME</div>
+                    <div class="section__lines">
+                        <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                        <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+                    </div>
+                </div>
+                <p>
+                    Hi ,i am Nathaliya Jhione m massa have been a great idea of iSuspendisse time have great idea in
+                    orci enim.
+                </p>
+                <div class="footer__some-img"></div>
+                <a href="/about-me" class="footer__read-more-btn">READ MORE ABOUT ME</a>
+            </div>
+            <div class="footer__col">
+                <div class="section">
+                    <div class="section__title">LATEST NEWS</div>
+                    <div class="section__lines">
+                        <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                        <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+                    </div>
+                </div>
+                <div class="footer__latest-news">
+                    <div class="footer__latest-news-item">
+                        <p class="footer__latest-news-author-name">SCOTT MANSON</p>
+                        <p class="footer__latest-news-text">Developer Advocate @heyval isaiyou know the very well is
+                            excited to be talking about things because you are very best ever and evry blog this is blog
+                            awesome really .
+                        </p>
+                        <p class="footer__latest-news-author-nickname"><i class="fa fa-twitter" aria-hidden="true"></i>@Twitter@magicalrebekah
+                        </p>
+                    </div>
+                    <div class="footer__latest-news-item">
+                        <p class="footer__latest-news-author-name">SCOTT MANSON</p>
+                        <p class="footer__latest-news-text">Developer Advocate @heyval isaiyou know the very well is
+                            excited to be talking about things because you are very best ever and evry blog this is blog
+                            awesome really .
+                        </p>
+                        <p class="footer__latest-news-author-nickname"><i class="fa fa-twitter" aria-hidden="true"></i>@Twitter@magicalrebekah
+                        </p>
+                    </div>
+                    <div class="footer__latest-news-item">
+                        <p class="footer__latest-news-author-name">SCOTT MANSON</p>
+                        <p class="footer__latest-news-text">Developer Advocate @heyval isaiyou know the very well is
+                            excited to be talking about things because you are very best ever and evry blog this is blog
+                            awesome really .
+                        </p>
+                        <p class="footer__latest-news-author-nickname"><i class="fa fa-twitter" aria-hidden="true"></i>@Twitter@magicalrebekah
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__col">
+                <div class="section">
+                    <div class="section__title">SUBSCRIBED & NEWSLETRER</div>
+                    <div class="section__lines">
+                        <div class="section__line section__line_color_orange"></div>
+                        <div class="section__line section__line_color_gray"></div>
+                    </div>
+                </div>
+                <p class="footer__pre-form-p">On the other hand, we denounce with righteous nation and have a great
+                    dislike men .</p>
+                <form action="#" class="footer__form">
+                    <input type="text" placeholder="YOUR USERNAME">
+                    <input type="text" placeholder="YOUR EMAIL ADDRESS">
+                    <input type="submit" value="SUBSCRIBED NOW">
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="bg-blur hidden"></div>
+</body>
+</html>

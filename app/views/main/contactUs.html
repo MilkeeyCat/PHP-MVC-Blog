@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ static }}css/contact.min.css">
+
+<link href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" rel="stylesheet" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js" defer></script>
+
+<script src="{{ static }}js/contact.js" defer></script>
+{% endblock %}
+
+{% block left_row %}
+<div class="left-col__inner">
+    <div class="contact-info">
+        <div id="map" class="contact-info__img"></div>
+        <div class="contact-info__left-col">
+            <div class="section">
+                <div class="section__title sidebar__title">CONTACT NFORMATION</div>
+                <div class="section__lines">
+                    <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                    <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam </p>
+            <ul>
+                <li>
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <p>Address: 123 Street Name, City Name, United States</p>
+                </li>
+                <li>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <p>Email: info@lifestyle.com</p>
+                </li>
+                <li>
+                    <i class="fa fa-globe" aria-hidden="true"></i><a href="http://localhost">http://localhost</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--    <div id="map"></div>-->
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'layouts/sidebar.html' %}
+{% endblock%}

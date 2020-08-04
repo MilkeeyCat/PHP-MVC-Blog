@@ -1,0 +1,6 @@
+@mixin hover-effect {
+    transition: color .5s;
+    &:hover {
+        color: $hover-color;
+    }
+}

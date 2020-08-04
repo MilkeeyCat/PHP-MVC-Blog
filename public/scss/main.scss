@@ -1,0 +1,38 @@
+@import "base.scss";
+
+.main {
+	&__slider {
+		height: 26vw;
+	}
+	&__many-slides-slider {
+		margin: 75px 0 60px;
+	}
+}
+
+.row {
+	&__recent-post {
+		max-width: 870px;
+		width: 100%;
+	}
+}
+
+.recent-post {
+	&__title {
+		font-size: 22px;
+	}
+	&__line_color_orange {
+		width: 20%;
+	}
+	&__line_color_gray {
+		width: 80%;
+	}
+	&__twice-article {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&__large-article {
+		// display: flex;
+		// flex-wrap: wrap;
+	}
+}

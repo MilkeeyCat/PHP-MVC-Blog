@@ -1,0 +1,215 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ static }}css/article.css">
+<script src="{{ static }}js/article.js" defer type="module"></script>
+{% endblock %}
+
+{% block left_row %}
+<article class="article row__article">
+    <div class="article__preview" style="background-image: url('{{ static }}posts-images/{{ post.preview_img }}');">
+        <div class="article__type">
+            <i class="fa fa-camera" arria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="article__text">
+        <div class="article__top">
+            <h3 class="article__title">{{ post.title }}</h3>
+            <p class="article__by">BY <span class="article__author">{{ post.author}}</span> <span
+                    class="acticle__pub-date">{{ post.pub_date }}.</span></p>
+        </div>
+        <section class="section article__line-section">
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange article__line_color_orange"></div>
+                <div class="section__line section__line_color_gray article__line_color_gray"></div>
+            </div>
+        </section>
+        <p>{{ post.text }}</p>
+        <!--        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,-->
+        <!--            lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet-->
+        <!--            nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor-->
+        <!--            a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora-->
+        <!--            torquent per conubia nostra.</p>-->
+        <!--        <p class="article__oneline-p">Morbi accumsan ipsum velit tincidunt auctor a ornare odio. Sed non mauris vitae-->
+        <!--            erat consequat auctor eu in elit.</p>-->
+        <!--        <div class="article__note">-->
+        <!--            Exercitation photo booth <span class="article__note_selected">stumptown</span> tote bag Banksy, elit small-->
+        <!--            batch fregan sed. Craft beer elit seitan hav-->
+        <!--            exercitation, photo booth et 8-bit kale <span class="article__note_selected">chips proident chillwave</span>-->
+        <!--            deep v laborum.-->
+        <!--        </div>-->
+        <!--        <div class="photo-collage">-->
+        <!--            <div class="photo-collage__ite photo-collage__item_short"></div>-->
+        <!--            <div class="photo-collage__item photo-collage__item_large"></div>-->
+        <!--            <div class="photo-collage__item photo-collage__item_large"></div>-->
+        <!--            <div class="photo-collage__item photo-collage__item_short"></div>-->
+        <!--        </div>-->
+        <!--        <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,-->
+        <!--            lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet-->
+        <!--            nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor-->
+        <!--            a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora-->
+        <!--            torquent per conubia nostra.</p>-->
+        <!--        <div class="article__list">-->
+        <!--            <h3 class="article__list-title">Nam Libero Tempore</h3>-->
+        <!--            <p class="article__list-sub-title">Earum rerum hic tenetur a sapiente delectus. Et harum quidem rerum-->
+        <!--                facilis est et expedita distinctio. Et iusto odio dignissimos ducimus qui blanditiis praesentium-->
+        <!--                voluptatum deleniti atque.</p>-->
+        <!---->
+        <!--            <ol class="article__list-item">-->
+        <!--                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aspernatur at cum cumque-->
+        <!--                    doloribus error est, explicabo neque nesciunt nihil obcaecati perferendis quaerat recusandae rem-->
+        <!--                    sapiente temporibus veritatis voluptatem?-->
+        <!--                </li>-->
+        <!--                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, cum debitis facere hic id-->
+        <!--                    incidunt minus, numquam odit optio praesentium quam qui quos recusandae reiciendis sequi, soluta-->
+        <!--                    tempore ut vero?-->
+        <!--                </li>-->
+        <!--                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet aperiam assumenda aut-->
+        <!--                    beatae dicta eos fugit, illo ipsa labore maxime minus modi officiis perspiciatis quia rem saepe,-->
+        <!--                    sed.-->
+        <!--                </li>-->
+        <!--            </ol>-->
+        <!--        </div>-->
+        <!--        <p class="article__oneline-p">Duis aute irure dolor in reprehenderit in voluptate velit. Qui officia deserunt-->
+        <!--            mollit anim id est laborum. Corrupti quos dolores et quas molestias excepturi sint occaecati. Facere-->
+        <!--            possimus, omnis voluptas assumenda have est, </p>-->
+        <!--        <p class="article__oneline-p">Omnis dolor repellendus. Ut aut reiciendis voluptatibus maiores alias consequatur-->
+        <!--            aut perferendis.Et harum quidem the odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti-->
+        <!--            atque.</p>-->
+        <div class="article__footer">
+            <p>Tags: <span class="article__tags">Beautiful, Nature, Place, weather</span></p>
+            <div class="share-block">
+                <ul class="share-block__social-media">
+                    <li class="share-block__item">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </li>
+                    <li class="share-block__item">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </li>
+                    <li class="share-block__item">
+                        <i class="fa fa-tumblr" aria-hidden="true"></i>
+                    </li>
+                    <li class="share-block__item">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </li>
+                </ul>
+                <div class="share-block__share-btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider article__slider">
+        <div class="slider__prev-btn article__btn">
+            <i class="fa fa-angle-left" aria-hidden></i>
+        </div>
+        <div class="slider__next-btn article__btn article__next-btn">
+            <i class="fa fa-angle-right" aria-hidden></i>
+        </div>
+        <div class="slider__slides">
+            <div class="slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Chrysanthemum.jpg');"></div>
+            <div class="slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Desert.jpg');"></div>
+            <div class="slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Hydrangeas.jpg');"></div>
+            <div class="slider__slide"
+                 style="background-image: url('{{ static }}images/slider-images/Lighthouse.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="article__popular-posts">
+        <div class="section">
+            <p class="section__title">ALSO NEWEST POSTS FROM THIS CATEGORY( {{ post.category_name }} )</p>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <div class="article__popular-posts-inner">
+            {% for post in samePostsByCategory %}
+            <article class="article article__popular-post">
+                <div class="article__preview"
+                     style="background-image:url('{{ static }}posts-images/{{ post.preview_img }}');"></div>
+                <div class="article__text">
+                    <div class="article__top">
+                        <a href="/article/{{ post.id }}" class="article__title">{{ post.title }}</a>
+                        <div class="article__by">BY <span class="article__author">{{ post.author }}</span> <span
+                                class="article__pub-date">{{ post.pub_date }}</span></div>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="author">
+        <div class="author__avatar"
+             style="background-image:url('{{ static }}images/authors-avatars/{{ post.avatar }}');"></div>
+        <div class="author__text">
+            <p class="author__name">{{ post.author }}</p>
+            <div class="section">
+                <div class="section__lines">
+                    <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                    <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+                </div>
+            </div>
+            <p class="author__description">
+                {{ post.author_description }}
+            </p>
+        </div>
+    </div>
+    <div class="large-social-networks">
+        <div class="large-social-networks__item">
+            <i class="fa fa-facebook" aria-hidden></i>
+            <div class="large-social-networks__name">
+                <span>FACEBOOK 18</span>
+            </div>
+        </div>
+        <div class="large-social-networks__item">
+            <i class="fa fa-twitter" aria-hidden></i>
+            <div class="large-social-networks__name">
+                <span>TWITTER 25</span>
+            </div>
+        </div>
+        <div class="large-social-networks__item">
+            <i class="fa fa-tumblr" aria-hidden></i>
+            <div class="large-social-networks__name">
+                <span>TUMBLR 10</span>
+            </div>
+        </div>
+    </div>
+    <div class="comments">
+        <div class="section">
+            <p class="section__title">{{ comments.commentsCount }} COMMENTS</p>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="leave-comments">
+        <div class="section">
+            <p class="section__title">LEAVE A COMMENTS</p>
+            <div class="section__lines">
+                <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
+                <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>
+            </div>
+        </div>
+        <form action="#" method="POST">
+            <div class="leave-comments__row">
+                <input type="text" name="name" placeholder="YOUR NAME">
+                <input type="text" name="email" placeholder="YOUR EMAIL ADDRESS">
+            </div>
+            <textarea placeholder="PLEASE WRITE A COMMENTMESSAGE HERE!"></textarea>
+            <button type="submit" name="message">SEND MESSAGE</button>
+            <input type="hidden" name="token" value="{{ token }}">
+        </form>
+    </div>
+</article>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'layouts/sidebar.html' %}
+{% endblock%}
