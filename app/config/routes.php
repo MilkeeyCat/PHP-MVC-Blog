@@ -9,6 +9,10 @@ return [
 		'controller' => 'article',
 		'action' => 'main'    	
     ],
+    'category/(?P<articleCategoryId>[0-9]+)' => [
+        'controller' => 'article',
+        'action' => 'showArticlesFromCategory'
+    ],
     'leave-comment' => [
         'controller' => 'comments',
         'action' => 'add'

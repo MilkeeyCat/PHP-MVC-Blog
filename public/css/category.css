@@ -3599,3 +3599,7 @@ body, * {
     background: #FF6E69; }
   .alert_success {
     background: #39E15E; }
+
+.articles {
+  max-width: 870px;
+  width: 100%; }

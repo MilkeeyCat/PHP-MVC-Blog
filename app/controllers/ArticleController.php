@@ -31,4 +31,16 @@ class ArticleController extends \app\controllers\BaseRenderController
             'samePostsByCategory' => $samePostsByCategory,
         ]);
 	}
+	public function  showArticlesFromCategoryAction()
+    {
+        $model = $this->loadModel('main');
+
+        $posts = $model->getPostsByCategoryId($this->route['articleCategoryId']);
+
+        if(empty($posts)) {
+            $this->view->errorCode(404);
+        }
+
+        $this->render(['posts' => $posts], "{$this->route['controller']}/articlesById");
+    }
 }

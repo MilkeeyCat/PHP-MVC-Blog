@@ -46,7 +46,7 @@ class Main extends \app\core\Model
         return finalizeData($posts);
     }
 
-    public function getPopularPosts($posts_limit = 1)
+    public function getPopularPosts($postsLimit = 1)
     {
         $posts = $this->db->row("
             SELECT `articles`.*, `authors`.name author, `social_network_links`.links
@@ -54,23 +54,36 @@ class Main extends \app\core\Model
             LEFT JOIN `authors` ON `authors`.id = `articles`.author_id
 			LEFT JOIN `social_network_links` ON `social_network_links`.author_id = `authors`.id
             ORDER BY `articles`.views DESC
-            LIMIT $posts_limit;");
+            LIMIT $postsLimit;");
 
         return finalizeData($posts);
     }
 
-    public function getPostsByCategory($id, $category_id, $posts_limit = 1)
+    public function getPostsByCategory($id, $categoryId, $postsLimit = 1)
     {
 
         $posts = $this->db->row("
             SELECT `articles`.*, `authors`.name author, `articles_categories`.name category_name
             FROM `articles`
 			LEFT JOIN `authors` ON `authors`.id = `articles`.author_id
-			LEFT JOIN `articles_categories` ON `articles_categories`.id = $category_id
-			WHERE `articles`.category_id = $category_id
+			LEFT JOIN `articles_categories` ON `articles_categories`.id = $categoryId
+			WHERE `articles`.category_id = $categoryId
             AND NOT `articles`.id = $id
 			ORDER BY `articles`.id DESC
-            LIMIT $posts_limit;");
+            LIMIT $postsLimit;");
+
+        return finalizeData($posts);
+    }
+
+    public function getPostsByCategoryId($categoryId)
+    {
+        $posts = $this->db->row("
+            SELECT `articles`.*, `authors`.name author, `articles_categories`.name category_name
+            FROM `articles`
+			LEFT JOIN `authors` ON `authors`.id = `articles`.author_id
+			LEFT JOIN `articles_categories` ON `articles_categories`.id = $categoryId
+			WHERE `articles`.category_id = $categoryId
+			ORDER BY `articles`.id DESC");
 
         return finalizeData($posts);
     }

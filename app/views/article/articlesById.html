@@ -1,0 +1,58 @@
+{% extends 'layouts/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ static }}css/category.min.css">
+{% endblock %}
+
+{% block left_row %}
+<div class="articles">
+    {% for post in posts %}
+    <article class="article article__large-article">
+        <div class="article__preview article__preview_style_large"
+             style="background-image: url('{{ static }}posts-images/{{ post.preview_img }}');"></div>
+        <div class="article__text article__text_style_large">
+            <div class="article__top">
+                <a href="/article/{{ post.id }}" class="article__title">{{ post.title }}</a>
+                <p class="article__by">BY <span class="article__author">{{ post.author }}</span> <span
+                        class="acticle__pub-date">{{ post.pub_date}}.</span></p>
+            </div>
+            <section class="section article__line-section">
+                <div class="section__lines">
+                    <div class="section__line section__line_color_orange article__line_color_orange"></div>
+                    <div class="section__line section__line_color_gray article__line_color_gray"></div>
+                </div>
+            </section>
+            <p class="article__description">{{ post.text }}</p>
+            <div class="article__btns">
+                <a class="article__left-btn article__left-btn_style_large" href="/article/{{ post.id }}">CONTINUE
+                    READING</a>
+
+                <div class="share-block">
+                    <ul class="share-block__social-media">
+                        <li class="share-block__item">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </li>
+                        <li class="share-block__item">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </li>
+                        <li class="share-block__item">
+                            <i class="fa fa-tumblr" aria-hidden="true"></i>
+                        </li>
+                        <li class="share-block__item">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                    <div class="share-block__share-btn">
+                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'layouts/sidebar.html' %}
+{% endblock %}

@@ -474,17 +474,17 @@ body, * {
         display: flex;
         align-items: center;
 
-        &_style_large > a {
+        &_style_large {
             color: #fff;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         &_style_twice-article {
             border: 1px solid #eaeaeb;
             background: #fff;
-
-            a {
-                color: #000;
-            }
+            color: #000;
         }
     }
 }
@@ -648,7 +648,7 @@ body, * {
         background: #FF6E69;
 
     }
-    
+
     &_success {
         background: #39E15E;
     }
