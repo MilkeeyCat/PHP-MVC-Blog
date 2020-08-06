@@ -69,15 +69,6 @@ window.addEventListener("load", () => {
     slider3.run();
 });
 
-let searchInputValue = "";
-const searchBtn = document.querySelector(".search > a.search__icon");
-searchBtn.onclick = (e) => {
-    e.preventDefault();
-}
-document.querySelector(".search > .search__input").oninput = function() {
-    searchInputValue = this.value;
-}
-
 const subscribeForm = document.querySelector('.footer__form');
 
 subscribeForm.onsubmit = async function (e) {

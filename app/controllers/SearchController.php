@@ -2,13 +2,18 @@
 
 namespace app\controllers;
 
-class SearchController extends \app\core\Controller
+class SearchController extends \app\controllers\BaseRenderController
 {
     public function searchAction()
     {
-        $articles = [];
-        $this->view->render([
-            'articles' =>  $articles
-        ]);
+        $model = $this->loadModel('main');
+
+        $posts = $model->searchPosts($this->route['searchQuery']);
+
+        finalizeData($posts);
+
+        $this->render([
+            'posts' =>  $posts
+        ], 'article/articlesById');
     }
 }

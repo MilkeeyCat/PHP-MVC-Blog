@@ -3514,6 +3514,8 @@ body, * {
       color: #000; }
     .search__input::placeholder {
       color: #000; }
+  .search button {
+    background: none; }
   .search__icon {
     position: absolute;
     top: 50%;

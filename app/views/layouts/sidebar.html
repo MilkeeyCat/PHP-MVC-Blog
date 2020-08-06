@@ -7,10 +7,12 @@
         </div>
     </div>
     <div class="search">
-        <input type="search" class="search__input" placeholder="SEARCH">
-        <a href="#" class="search__icon">
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
+        <form action="/search" method="GET">
+            <input type="search" name="q" class="search__input" placeholder="SEARCH">
+            <button type="submit" class="search__icon">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
     </div>
     <div class="popular-post">
         <div class="section">

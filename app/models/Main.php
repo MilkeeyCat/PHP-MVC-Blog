@@ -94,4 +94,18 @@ class Main extends \app\core\Model
         UPDATE `articles` SET views = views + 1 
         WHERE id = $id");
     }
+
+    public function searchPosts($query)
+    {
+        $query = urldecode($query);
+        $posts = $this->db->row("
+            SELECT * FROM `articles` WHERE `text` LIKE '%$query%' OR `title` LIKE '%$query%';");
+//            SELECT * FROM `articles` WHERE `title` LIKE '%$query%';");
+//        $postsByTitle = $this->db->row("
+//            SELECT `articles`.*, `authors`.name author
+//            FROM `articles`
+//			LEFT JOIN `authors` ON `authors`.id = `articles`.author_id AND ");
+
+        return $posts;
+    }
 }

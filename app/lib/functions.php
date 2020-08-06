@@ -1,6 +1,6 @@
 <?php
 
-function finalizeData($posts)
+function finalizeData(&$posts)
 {
     foreach ($posts as &$post) {
         $post['text'] = mb_substr($post['text'], 0, 160) . '...';

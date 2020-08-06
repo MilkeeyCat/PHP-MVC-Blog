@@ -544,6 +544,10 @@ body, * {
         }
     }
 
+    button {
+        background: none;
+    }
+
     &__icon {
         position: absolute;
         top: 50%;

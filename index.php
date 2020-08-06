@@ -17,7 +17,6 @@ spl_autoload_register(function ($classname) {
     }
 });
 
-
 $route = new Router;
 
 $route->run();
