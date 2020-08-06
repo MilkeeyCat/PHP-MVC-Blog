@@ -1,5 +1,7 @@
 {% extends "layouts/base.html" %}
 
+{% block title %} {{ post.title }} {% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="{{ static }}css/article.css">
 <script src="{{ static }}js/article.js" defer type="module"></script>

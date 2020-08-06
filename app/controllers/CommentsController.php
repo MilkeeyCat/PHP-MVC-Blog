@@ -10,6 +10,8 @@ class CommentsController extends \app\core\Controller
         $model = $this->loadModel('comments');
         $data = json_decode(file_get_contents('php://input'), true);
 
+        sanitizeData($data);
+
         preg_match('/(?P<articleId>[0-9])+$/', $_SERVER['HTTP_REFERER'], $matches);
         $data['articleId'] = $matches['articleId'];
 

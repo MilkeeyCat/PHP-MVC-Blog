@@ -28,3 +28,26 @@ function getAvatarByEmail(&$data, $emailAddressFieldName = 'email')
 
     return $data;
 }
+
+function isAssoc(array $arr)
+{
+    if (array() === $arr) return false;
+    return array_keys($arr) !== range(0, count($arr) - 1);
+}
+
+function sanitizeData(&$data) {
+    if(is_array($data) && isAssoc($data)) {
+        foreach ($data as $value => &$key) {
+            $key = filter_var($key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        }
+    } elseif (is_array($data) && !isAssoc($data)) {
+        foreach ($data as $value) {
+            $value = filter_var($key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        }
+    }
+    else if(is_string($data)) {
+        $data = filter_var($key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    } else {
+        return $data;
+    }
+}

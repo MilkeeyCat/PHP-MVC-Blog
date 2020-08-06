@@ -8,12 +8,19 @@ class SearchController extends \app\controllers\BaseRenderController
     {
         $model = $this->loadModel('main');
 
-        $posts = $model->searchPosts($this->route['searchQuery']);
+        $searchQuery = $this->route['searchQuery'];
+
+        if($searchQuery === '') {
+            $this->view->redirect('/');
+        }
+
+        $posts = $model->searchPosts($searchQuery);
 
         finalizeData($posts);
 
         $this->render([
-            'posts' =>  $posts
+            'posts' =>  $posts,
+            'searchQuery' => $searchQuery
         ], 'article/articlesById');
     }
 }

@@ -29,7 +29,7 @@ return [
         'controller' => 'main',
         'action' => 'contactUs'
     ],
-    'search\?q=(?P<searchQuery>.+)' => [
+    'search\?q=(?P<searchQuery>.*)' => [
         'controller' => 'search',
         'action' => 'search'
     ],

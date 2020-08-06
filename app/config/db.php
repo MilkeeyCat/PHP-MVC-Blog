@@ -11,7 +11,7 @@
 return [
     'host' => 'localhost',
     'username' => 'root',
-    'password' => 'root',
+    'password' => '',
     'dbname' => 'blog',
     'sql' => 'mysql'
 ];

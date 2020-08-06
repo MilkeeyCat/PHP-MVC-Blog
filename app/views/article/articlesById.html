@@ -54,5 +54,7 @@
 {% endblock %}
 
 {% block sidebar %}
-{% include 'layouts/sidebar.html' %}
+
+{% include 'layouts/sidebar.html' with { 'searchQuery': searchQuery } %}
+
 {% endblock %}

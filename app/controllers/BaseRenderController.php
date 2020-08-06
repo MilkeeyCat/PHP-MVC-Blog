@@ -17,7 +17,7 @@ class BaseRenderController extends \app\core\Controller
 
         $this->view->render(array_merge([
             'categories' => $categories,
-            'popularPosts' => $popularPosts
+            'popularPosts' => $popularPosts,
         ], $vars));
     }
 }
