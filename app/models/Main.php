@@ -36,13 +36,18 @@ class Main extends \app\core\Model
     public function getPostById($id)
     {
         $post = $this->db->row("
-			SELECT `articles`.*, `authors`.name author, `authors`.avatar, `authors`.description author_description, `social_network_links`.links
+			SELECT `articles`.*, `authors`.name author, `authors`.avatar, `authors`.description author_description, `social_network_links`.links, `articles_categories`.name category_name
 			FROM `articles`
 			LEFT JOIN `authors` ON `authors`.id = `articles`.author_id
 			LEFT JOIN `social_network_links` ON `social_network_links`.author_id = `authors`.id
+			LEFT JOIN `articles_categories` ON `articles_categories`.id = `articles`.category_id
 			WHERE `articles`.id = $id;");
 
-        return finalizeData($post);
+        finalizeData($post);
+
+//        exit(debug($post));
+
+        return $post;
     }
 
     public function getPopularPosts($postsLimit = 1)

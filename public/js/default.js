@@ -1,5 +1,5 @@
-import { Slider, transitionDuration } from "./slider.js";
-import { animateAlert }  from "./functions.js";
+import {Slider, transitionDuration} from "./slider.js";
+import {animateAlert} from "./functions.js";
 
 const slider3 = new Slider({
     slider: ".sidebar__slider",
@@ -26,6 +26,15 @@ burgerMenuBtn.onclick = function () {
     }
     blurBg.addEventListener("click", a);
 }
+
+document.querySelector(".header__search > a").onclick = function () {
+    const a = document.querySelector(".search input");
+
+    const handler = setTimeout(() => {
+        a.focus();
+        clearTimeout(handler);
+    }, 0);
+};
 
 let hiddenFooter = JSON.parse(localStorage.getItem("hiddenFooter")) || false;
 const footerHideData = document.querySelector(".footer__cols");

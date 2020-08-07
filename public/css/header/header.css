@@ -30,6 +30,9 @@
     display: flex; }
     .header__left > :last-child {
       border-right: 1px solid #eaeaeb; }
+    .header__left button {
+      background: none;
+      padding: 0; }
   .header__submit-story, .header__search {
     border-left: 1px solid #eaeaeb;
     padding: 0 15px;

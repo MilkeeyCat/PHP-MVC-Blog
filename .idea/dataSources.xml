@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="blog@127.0.0.1" uuid="e093b8d2-b8dc-459d-9d90-110b28da363b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/blog</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Europe/Kiev" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="epiz_26002278_blog@sql103.epizy.com" uuid="5ca9af78-893f-40e2-a6e2-c3846771647f">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://sql103.epizy.com:3306/epiz_26002278_blog</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="comments@localhost" uuid="261f5c1d-eb3d-43d0-97dc-75710091e787">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/comments</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Europe/Kiev" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

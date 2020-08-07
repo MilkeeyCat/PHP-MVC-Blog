@@ -8,7 +8,7 @@ class SearchController extends \app\controllers\BaseRenderController
     {
         $model = $this->loadModel('main');
 
-        $searchQuery = $this->route['searchQuery'];
+        $searchQuery = urldecode($this->route['searchQuery']);
 
         if($searchQuery === '') {
             $this->view->redirect('/');

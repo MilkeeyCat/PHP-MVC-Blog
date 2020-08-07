@@ -2,6 +2,7 @@
 @import "../_mixins.scss";
 
 .header {
+    $this: &;
     $header-border-color: #eaeaeb;
     $header-box-shadow-color: $header-border-color;
 
@@ -30,6 +31,11 @@
 
         & > :last-child {
             border-right: 1px solid $header-border-color;
+        }
+
+        button {
+            background: none;
+            padding: 0;
         }
     }
 
@@ -137,4 +143,5 @@
             transform: translateX(0);
         }
     }
+
 }
