@@ -227,6 +227,8 @@ window.onload = () => {
                 </div>
             `);
 
+            document.querySelector(".comments .section__title").textContent = `${document.querySelectorAll(".comments__item").length} COMMENTS`;
+
             replyBtns = document.querySelectorAll(".comments__reply");
 
             setHandlerToReplyBtns();

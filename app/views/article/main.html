@@ -79,7 +79,18 @@
         <!--            aut perferendis.Et harum quidem the odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti-->
         <!--            atque.</p>-->
         <div class="article__footer">
-            <p>Tags: <span class="article__tags">Beautiful, Nature, Place, weather</span></p>
+            <p>
+                {% if ( post.tags ) %}
+                    Tags:
+                        <span class="article__tags">
+                            {{ post.tags | join(', ') }}
+                        </span>
+                    {% else %}
+                        <span class="article__tags">
+                               Author did not add tags to the article
+                        </span>
+                {% endif %}
+            </p>
             <div class="share-block">
                 <ul class="share-block__social-media">
                     <li class="share-block__item">
@@ -183,7 +194,7 @@
     </div>
     <div class="comments">
         <div class="section">
-            <p class="section__title">{{ comments.commentsCount }} COMMENTS</p>
+            <p class="section__title">0 COMMENTS</p>
             <div class="section__lines">
                 <div class="section__line section__line_color_orange sidebar__line_color_orange"></div>
                 <div class="section__line section__line_color_gray sidebar__line_color_gray"></div>

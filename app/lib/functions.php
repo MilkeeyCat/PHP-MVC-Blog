@@ -5,7 +5,8 @@ function finalizeData(&$posts)
     foreach ($posts as &$post) {
         $post['text'] = mb_substr($post['text'], 0, 160) . '...';
         $post['pub_date'] = date("F j Y", strtotime($post['pub_date']));
-        @$post['links'] = json_decode($post['links'], true);
+        @$post['links'] = json_decode(@$post['links'], true);
+        @$post['tags'] = json_decode(@$post['tags'], true);
     }
 
     return $posts;

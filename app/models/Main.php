@@ -45,8 +45,6 @@ class Main extends \app\core\Model
 
         finalizeData($post);
 
-//        exit(debug($post));
-
         return $post;
     }
 
