@@ -101,7 +101,7 @@ class Main extends \app\core\Model
     {
         $query = urldecode($query);
         $posts = $this->db->row("
-            SELECT * FROM `articles` WHERE `text` LIKE '%$query%' OR `title` LIKE '%$query%';");
+            SELECT * FROM `articles` WHERE `text` LIKE '%$query%' OR `title` LIKE '%$query%' OR `tags` LIKE '%$query%';");
 //            SELECT * FROM `articles` WHERE `title` LIKE '%$query%';");
 //        $postsByTitle = $this->db->row("
 //            SELECT `articles`.*, `authors`.name author
