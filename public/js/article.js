@@ -1,5 +1,10 @@
 import {Slider, transitionDuration} from "./slider.js";
-import { animateAlert } from "./functions.js";
+import {animateAlert} from "./functions.js";
+
+const CREATE_COMMENTS = 1;
+const ADD_COMMENTS = 2;
+
+let data;
 
 window.onload = () => {
 
@@ -38,49 +43,93 @@ window.onload = () => {
 
     let replyBtns;
 
-    async function listComment() {
-        const data = await fetch("/comments-list/" + articleId)
+    async function loadMoreComments(insertionLocation) {
+        // debugger;
+        if (data?.next) {
+            listComment(data.next, ADD_COMMENTS);
+        } else {
+            const parent = insertionLocation.parentNode;
+            parent.removeChild(parent.querySelector("button"));
+
+            return false;
+        }
+    }
+
+    async function listComment(url, action = CREATE_COMMENTS) {
+
+        data = await fetch(url)
             .then(res => res.json());
 
-        const res = document.createElement("div");
-        res.classList.add("comments__inner");
+        let res;
 
-        for (let i = 0; i < data.length; ++i) {
-            if (data[i]["reply_to"] == null) {
-                let comment = `
-                    <div class="comments__item" data-id="${data[i].id}">
+        if (action === CREATE_COMMENTS) {
+            res = document.createElement("div");
+            res.classList.add("comments__inner");
+        } else if (action === ADD_COMMENTS) {
+            res = document.querySelector(".comments__inner");
+        }
+
+        for (let i = 0; i < data.comments.length; ++i) {
+            let comment = data.comments[i];
+            if (comment["reply_to"] == null) {
+                let commentHTML = `
+                    <div class="comments__item" data-id="${comment.id}">
                         <div class="comments__comment">
-                            <div class="comments__avatar" style="background-image:url(${data[i].avatar});"></div>
+                            <div class="comments__avatar" style="background-image:url(${comment.avatar});"></div>
                             <div class="comments__text">
                                 <div class="comments__top">
                                     <div class="comments__author-data">
-                                        <p class="comments__name">${data[i].name}</p>
-                                        <p class="comments__pub-date">${data[i]["pub_date"]}</p>
+                                        <p class="comments__name">${comment.name}</p>
+                                        <p class="comments__pub-date">${comment["pub_date"]}</p>
                                     </div>
                                     <div class="comments__reply">
                                         <i class="fa fa-reply" aria-hidden></i>
                                             REPLY
                                     </div>
                                 </div>
-                                <p class="comments__comment-text">${data[i].text}</p>
+                                <p class="comments__comment-text">${comment.text}</p>
                             </div>
                         </div>
                         <div class="comments__reply-comment"></div>
                     </div>
                 `;
 
-                res.insertAdjacentHTML("beforeend", comment);
-                listReplies(data[i].id, data, res.querySelector(`.comments__item[data-id="${data[i].id}"] > .comments__reply-comment`));
+                res.insertAdjacentHTML("beforeend", commentHTML);
+                listReplies(comment.id, data.comments, res.querySelector(`.comments__item[data-id="${comment.id}"] > .comments__reply-comment`));
             }
         }
-        document.querySelector(".comments").appendChild(res);
-        document.querySelector(".comments .section__title").textContent = `${data.length} COMMENTS`;
+
+        const insertionPos = document.querySelector(".comments");
+        insertionPos.insertBefore(res, insertionPos.children[1]);
+
+        document.querySelector(".comments .section__title").textContent = `${document.querySelectorAll(".comments__item").length} COMMENTS`;
 
         replyBtns = document.querySelectorAll(".comments__reply");
+
         setHandlerToReplyBtns();
+
+        if (data?.next && !res.parentNode.querySelector("button")) {
+            res.insertAdjacentHTML("afterend", `
+                <button>Load more comments</button>
+            `);
+            res.parentNode.querySelector("button").onclick = function () {
+                loadMoreComments(res);
+            }
+        } else if (data?.next) {
+            return true;
+        } else {
+            let parent = res.parentNode;
+            parent.removeChild(parent.querySelector("button"));
+        }
+
+        // document.querySelector(".comments .section__title").textContent = `${document.querySelectorAll(".comments__item").length} COMMENTS`;
+        //
+        // replyBtns = document.querySelectorAll(".comments__reply");
+        // setHandlerToReplyBtns();
+
     }
 
-    listComment();
+    listComment("/comments-list/" + articleId);
 
     const slider = new Slider({
         slider: ".article__slider",
@@ -149,8 +198,39 @@ window.onload = () => {
 
         if (result.status == 200) {
             const comments = document.querySelector(".comments__inner");
-            comments.parentNode.removeChild(comments);
-            listComment();
+
+            let placeToInsert = document.querySelector(`.comments__item[data-id="${result.comment["reply_to"]}"]`);
+
+            placeToInsert = placeToInsert === null ? comments : placeToInsert.querySelector(".comments__reply-comment");
+
+            const comment = result.comment;
+
+            placeToInsert.insertAdjacentHTML("afterbegin", `
+                <div class="comments__item" data-id="${comment.id}">
+                    <div class="comments__comment">
+                        <div class="comments__avatar" style="background-image:url(${comment.avatar});"></div>
+                        <div class="comments__text">
+                            <div class="comments__top">
+                                <div class="comments__author-data">
+                                    <p class="comments__name">${comment.name}</p>
+                                    <p class="comments__pub-date">${comment["pub_date"]}</p>
+                                </div>
+                                <div class="comments__reply">
+                                    <i class="fa fa-reply" aria-hidden></i>
+                                        REPLY
+                                </div>
+                            </div>
+                            <p class="comments__comment-text">${comment.text}</p>
+                        </div>
+                    </div>
+                    <div class="comments__reply-comment"></div>
+                </div>
+            `);
+
+            replyBtns = document.querySelectorAll(".comments__reply");
+
+            setHandlerToReplyBtns();
+
             animateAlert("success", "Comment added successfully");
             this.reset();
             selectedBtn = null;

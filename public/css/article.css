@@ -3787,6 +3787,7 @@ body, * {
     background: #fff; }
 
 .comments {
+  overflow: auto;
   padding: 40px 30px;
   padding-bottom: 0;
   margin-top: 60px;
@@ -3840,6 +3841,16 @@ body, * {
       color: #ffb79b; }
   .comments__reply-comment {
     padding-left: 70px; }
+  .comments button {
+    padding: 20px 10px;
+    background: #ffb79b;
+    display: block;
+    margin: 30px auto;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-transition: background .5s;
+    -o-transition: background .5s;
+    transition: background .5s; }
 
 .leave-comments {
   width: 100%;
@@ -3875,4 +3886,5 @@ body, * {
     padding: 15px 40px;
     margin-top: 20px;
     background: #ffb79b;
-    color: #fff; }
+    color: #fff;
+    text-transform: uppercase; }

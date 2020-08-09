@@ -219,7 +219,7 @@
 }
 
 .comments {
-    //overflow: hidden;
+    overflow: auto;
     $this: &;
     padding: 40px 30px;
     padding-bottom: 0;
@@ -284,6 +284,15 @@
         padding-left: 70px;
     }
 
+    button {
+        padding: 20px 10px;
+        background: $hover-color;
+        display: block;
+        margin: 30px auto;
+        color: #fff;
+        text-transform: uppercase;
+        transition: background .5s;
+    }
 }
 
 .leave-comments {
@@ -329,5 +338,6 @@
         margin-top: 20px;
         background: #ffb79b;
         color: #fff;
+        text-transform: uppercase;
     }
 }

@@ -17,7 +17,7 @@ return [
         'controller' => 'comments',
         'action' => 'add'
     ],
-    'comments-list/(?P<articleId>[0-9]+)' => [
+    'comments-list/(?P<articleId>[0-9]+)(?:/)?(?:\?p=(?P<page>[0-9]+))?' => [
         'controller' => 'comments',
         'action' => 'show'
     ],
