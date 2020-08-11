@@ -235,6 +235,10 @@
         margin-top: -2px;
     }
 
+    &__item :last-child hr:last-of-type {
+        display: none;
+    }
+
     &__comment {
         display: flex;
         flex-wrap: wrap;

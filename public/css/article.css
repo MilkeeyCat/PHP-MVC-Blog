@@ -3797,6 +3797,8 @@ body, * {
   .comments hr {
     margin: 0;
     margin-top: -2px; }
+  .comments__item :last-child hr:last-of-type {
+    display: none; }
   .comments__comment {
     display: -webkit-box;
     display: -ms-flexbox;
