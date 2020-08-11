@@ -3794,14 +3794,16 @@ body, * {
   background: #fff; }
   .comments .section {
     margin: 0; }
+  .comments hr {
+    margin: 0;
+    margin-top: -2px; }
   .comments__comment {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 30px 0;
-    border: 1px solid #d5d4e2; }
+    padding: 30px 0; }
   .comments__avatar {
     min-width: 70px;
     height: 60px;

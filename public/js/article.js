@@ -15,8 +15,8 @@ window.onload = () => {
             if (data[i]["reply_to"] == commentId) {
                 let comment = `
                 <div class="comments__item" data-id="${data[i].id}">
+                    <hr>
                     <div class="comments__comment">
-
                         <div class="comments__avatar" style="background-image:url(${data[i].avatar});"></div>
                         <div class="comments__text">
                             <div class="comments__top">
@@ -32,6 +32,7 @@ window.onload = () => {
                             <p class="comments__comment-text">${data[i].text}</p>
                         </div>
                     </div>
+                    <hr>
                     <div class="comments__reply-comment"></div>
                 </div>
                 `;
@@ -74,6 +75,7 @@ window.onload = () => {
             if (comment["reply_to"] == null) {
                 let commentHTML = `
                     <div class="comments__item" data-id="${comment.id}">
+                        <hr>
                         <div class="comments__comment">
                             <div class="comments__avatar" style="background-image:url(${comment.avatar});"></div>
                             <div class="comments__text">
@@ -90,6 +92,7 @@ window.onload = () => {
                                 <p class="comments__comment-text">${comment.text}</p>
                             </div>
                         </div>
+                        <hr>
                         <div class="comments__reply-comment"></div>
                     </div>
                 `;

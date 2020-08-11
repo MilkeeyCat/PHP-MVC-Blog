@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../comments.loc/.idea/comments.loc.iml" filepath="$PROJECT_DIR$/../comments.loc/.idea/comments.loc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/v2-blog.loc.iml" filepath="$PROJECT_DIR$/.idea/v2-blog.loc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../std.loc/.idea/v2-blog.loc.iml" filepath="$PROJECT_DIR$/../std.loc/.idea/v2-blog.loc.iml" />
     </modules>
   </component>
 </project>
